@@ -8,7 +8,12 @@ import SpeechRecognition, {
 
 const ChatMobile = () => {
   const [message, setMessage] = useState("");
-  const [chats, setChats] = useState([]);
+  const [chats, setChats] = useState([
+    {
+      message:
+        "👋 Welcome to SVNIT Chat Bot! I'm here to help with all things Sardar Vallabhbhai National Institute of Technology. Questions about admissions, faculty, campus, fees, or anything else SVNIT related? Just type your query, and let's explore together! 🎓💬 #SVNIT #ChatBot",
+    },
+  ]);
   const [isTyping, setIsTyping] = useState(false);
 
   const [textinput, setTextInput] = useState(true);
@@ -44,7 +49,7 @@ const ChatMobile = () => {
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
-  console.log(process.env.REACT_APP_API_URL);
+  // console.log(process.env.REACT_APP_API_URL);
   const chat = async (e, msg) => {
     e.preventDefault();
 
@@ -83,7 +88,7 @@ const ChatMobile = () => {
         console.log(error);
       });
   };
-  console.log(listening);
+  // console.log(listening);
   return (
     <>
       <div className="widget-chatbot-mobile">
