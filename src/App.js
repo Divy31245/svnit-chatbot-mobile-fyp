@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+// import logo from './logo.svg';
+// import { useState } from "react";
+import "./App.css";
+import ChatMobile from "./components/ChatMobile/ChatMobile";
+import MainChat from "./components/Chat/mainchat";
+import Mictest from "./components/mictest/Mictest";
+// import ChatIcon from "@mui/icons-material/Chat";
+// import CloseIcon from "@mui/icons-material/Close";
 function App() {
+  // const [openmodal, setopenModal] = useState(false);
+  // const handleClick = () => {
+  //   setopenModal(!openmodal);
+  // };
+  // console.log(openmodal);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-app">
+      {/* <MainChat /> */}
+      <ChatMobile />
+      {/* <Mictest /> */}
+      {/* <button className="profile_div" onClick={() => handleClick()}>
+        {openmodal === false ? <ChatIcon /> : <CloseIcon />}
+      </button> */}
     </div>
   );
 }
