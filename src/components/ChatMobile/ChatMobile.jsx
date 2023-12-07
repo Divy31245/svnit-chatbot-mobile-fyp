@@ -11,7 +11,7 @@ const ChatMobile = () => {
   const [chats, setChats] = useState([
     {
       message:
-        "👋 Welcome to SVNIT Chat Bot! I'm here to help with all things Sardar Vallabhbhai National Institute of Technology. Questions about admissions, faculty, campus, fees, or anything else SVNIT related? Just type your query, and let's explore together! 🎓💬 #SVNIT #ChatBot",
+        "👋 Welcome to the SVNIT Chat Bot! 🤖 Here to assist with all things Sardar Vallabhbhai National Institute of Technology! Admissions, faculty, campus, fees, or any SVNIT query—just type away! Let's explore together! 🎓💬 #SVNIT #ChatBot",
     },
   ]);
   const [isTyping, setIsTyping] = useState(false);
@@ -36,6 +36,37 @@ const ChatMobile = () => {
       SpeechRecognition.stopListening();
     }
   };
+  const handleSpeechEnd = () => {
+    // If speech recognition ended and the mic was previously on, click the mic again
+    if (ok === true) {
+      setOk(false);
+      setTimeout(() => {
+        setOk(true);
+      }, 0);
+    }
+  };
+
+  useEffect(() => {
+    // Set the onEnd callback to handle the end of speech recognition
+    SpeechRecognition.onEnd = handleSpeechEnd();
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      SpeechRecognition.abortListening();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (ok) {
+      SpeechRecognition.startListening({ continuous: true });
+    }
+  
+    return () => {
+      SpeechRecognition.stopListening();
+    };
+  }, [ok]);
+  
 
   useEffect(() => {
     setMessage(transcript);
@@ -49,7 +80,7 @@ const ChatMobile = () => {
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
   }
-  // console.log(process.env.REACT_APP_API_URL);
+  console.log(process.env.REACT_APP_API_URL);
   const chat = async (e, msg) => {
     e.preventDefault();
 
@@ -63,7 +94,7 @@ const ChatMobile = () => {
     setMessage("");
     resetTranscript();
     // console.log(msg);
-    fetch(process.env.API_URL, {
+    fetch(process.env.REACT_APP_API_URL + "/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

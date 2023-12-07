@@ -26,6 +26,11 @@
   [class*="header-chatbot-mobile"] {
     height: 14%;
   }
+
+  [class*="user_msg-mobile"]{
+    font-size: 12px;
+    text-align: justify;
+  }
 }
 
 .widget-chatbot-mobile p {
@@ -46,6 +51,7 @@
   padding: 10px !important;
   padding-right: 15px !important;
   border-radius: 20px 5px 20px 20px !important;
+  text-justify: inter-word;
 }
 
 .user_msg2-mobile {
@@ -54,6 +60,7 @@
   padding-left: 15px !important;
   border-radius: 5px 20px 20px 20px !important;
   color: #333333 ;
+  text-justify: inter-word;
 }
 
 .hide-mobile {
