@@ -28,7 +28,11 @@
   }
 
   [class*="user_msg-mobile"]{
-    font-size: 12px;
+    font-size: 14px;
+    text-align: justify;
+  }
+  [class*="user2_msg-mobile"]{
+    font-size: 14px;
     text-align: justify;
   }
 }

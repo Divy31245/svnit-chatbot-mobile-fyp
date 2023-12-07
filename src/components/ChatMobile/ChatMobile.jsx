@@ -96,6 +96,7 @@ const ChatMobile = () => {
     // console.log(msg);
     fetch(process.env.REACT_APP_API_URL + "/chat", {
       method: "POST",
+      mode: 'cors',
       headers: {
         "Content-Type": "application/json",
       },
