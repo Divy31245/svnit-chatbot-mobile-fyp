@@ -96,8 +96,8 @@
   /* bottom: 0; */
   /* left: 0; */
   /* right: 0; */
-  /* text-align: center !important; */
-  /* position: sticky !important; */
+  text-align: center !important;
+  position: sticky !important;
   bottom: 0 !important;
   margin: 10px;
   /* height: 7%; */
@@ -109,6 +109,8 @@
   /* border-top: 0.5px solid rgb(193, 187, 187); */
 }
 
+
+
 .text-input-chatbot-mobile {
   padding-inline: 0 !important;
   width: 100% !important;
@@ -116,7 +118,9 @@
   border: none !important;
   padding: 10px !important;
   font-size: 1.2rem !important;
-
+  overflow-y: clip !important;
+  resize: none;
+  outline: none;
   background-color: rgb(255, 255, 255) !important;
   outline: none;
   border-radius: 20px;

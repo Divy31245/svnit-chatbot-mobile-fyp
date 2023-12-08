@@ -64,13 +64,18 @@ const ChatMobile = () => {
   
     return () => {
       SpeechRecognition.stopListening();
+      resetTranscript();
     };
   }, [ok]);
   
 
   useEffect(() => {
     setMessage(transcript);
-    return () => {};
+    return () => {
+      // if(message === ""){
+      //   resetTranscript()
+      // }
+    };
   }, [transcript]);
 
   useEffect(() => {
@@ -169,7 +174,7 @@ const ChatMobile = () => {
             action=""
             onSubmit={(e) => chat(e, message)}
           >
-            <input
+            <textarea
               // disabled={textinput === false}
               autoComplete="one-time-code"
               className={`${
