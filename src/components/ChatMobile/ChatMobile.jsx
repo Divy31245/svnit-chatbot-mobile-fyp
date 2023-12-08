@@ -80,7 +80,7 @@ const ChatMobile = () => {
 
   useEffect(() => {
     chatRef.current?.scrollIntoView({ behavior: "smooth" });
-  });
+  },[isTyping]);
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
